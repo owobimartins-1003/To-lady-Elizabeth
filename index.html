@@ -198,8 +198,21 @@
             See you on Valentine’s Day🌹
           </p>
         </div>
-      `;
-    });
+<p2 style="font-size:14px; bottom:10px; opacity:0.8;">
+          💌
+        </p>
+      </div>
+    `;
+// ⏳ Delay so she sees everything first
+    setTimeout(() => {
+      const phoneNumber = "2349032524033"; // 🔴 YOUR NUMBER
+      const message = "I said YES 💘😊";
+      const whatsappLink =
+        `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+      window.open(whatsappLink, "_blank");
+    }, 3000); // 5 seconds delay
+  });
 
   </script>
 
