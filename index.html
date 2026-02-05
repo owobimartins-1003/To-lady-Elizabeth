@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>For Elizabeth 💘</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: Georgia, "Georgia Pro", serif;
+      background: linear-gradient(to bottom, #ffd6e8, #ff9fc4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.6);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    /* Main Card */
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      width: 460px;
+      padding: 45px 35px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0px 12px 30px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Cute Cat */
+    .cat {
+      width: 90px;
+      margin-bottom: 10px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 15px 0 35px;
+      color: #222;
+    }
+
+    /* Buttons aligned */
+    .btns {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      align-items: center;
+      position: relative;
+    }
+
+    button {
+      border: none;
+      padding: 14px 34px;
+      border-radius: 30px;
+      font-size: 17px;
+      cursor: pointer;
+      font-family: Georgia, "Georgia Pro", serif;
+      transition: 0.25s;
+    }
+
+    #yes {
+      background: #ff4d79;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0px 5px 15px rgba(255, 77, 121, 0.5);
+    }
+
+    #no {
+      background: white;
+      color: black;
+      font-weight: bold;
+      border: 2px solid #ddd;
+      position: relative;
+    }
+
+    .note {
+      margin-top: 25px;
+      font-size: 13px;
+      color: gray;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <!-- ✅ PLACE CAT LINK HERE -->
+    <img class="cat"
+      src="https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyb2Jhcm5wemNzbjlicm9mOGVudGR2OXd2cHo4MnByaGVxMHA4a3d0diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d37mEpcaGP3pudPoho/giphy.gif"
+      alt="Cute Cat"
+    >
+
+    <h1>My Lady Elizabeth, will you be my Valentine?💘</h1>
+
+    <div class="btns">
+      <button id="yes">Yes</button>
+      <button id="no">No</button>
+    </div>
+
+    <div class="note">"No" seems a bit shy</div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+
+    let yesSize = 1;
+
+    /* Floating hearts */
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 25 + 15 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 400);
+
+    /* NO only moves when clicked */
+    noBtn.addEventListener("click", function () {
+
+      // Move button randomly
+      const x = Math.floor(Math.random() * 200) - 100;
+      const y = Math.floor(Math.random() * 100) - 50;
+
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+      // YES grows bigger every time NO is clicked
+      yesSize += 0.2;
+      yesBtn.style.transform = `scale(${yesSize})`;
+    });
+
+    /* YES click message */
+    yesBtn.addEventListener("click", function () {
+      document.body.innerHTML = `
+        <div style="
+          font-family: Georgia, 'Georgia Pro', serif;
+          text-align:center;
+          margin-top:50px;
+          color:white;
+        ">
+
+          <h1 style="font-size:35px; color:#ff4d79;">
+            YAYYYY🤭
+          </h1>
+                      <!-- ❤️ YOUR GIF HERE -->
+      <img 
+        src="https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyb2liMHFrNXBocjNjZHV0cHd6djYwcjA1M2FnZHo2NTdkMnVtNWZsZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yiRz47PQ9ZlHIRdZNj/giphy.gif"
+        style="
+          width:280px;
+          margin-top:25px;
+          border-radius:20px;
+          box-shadow:0px 8px 25px rgba(0,0,0,0.3);
+        "
+        alt="Valentine Gif"
+      >
+          <h2 style="font-size:18px;">
+            There’s no one else I’d rather call my Valentine, than you my pretty Lady🥹❤️
+          </h2>
+          
+          <p style="font-size:18px;">
+            See you on Valentine’s Day🌹
+          </p>
+        </div>
+      `;
+    });
+
+  </script>
+
+</body>
+</html>
